@@ -1,0 +1,30 @@
+{
+   "name" : "faulkj/webclient",
+   "description" : "A wrapper class for cURL in PHP.",
+   "keywords" : [
+      "client",
+      "curl",
+      "web service",
+      "fetch"
+   ],
+   "license" : "Unlicense",
+   "authors" : [{
+         "name" : "Joshua Faulkenberry",
+         "email" : "j@joshuafaulkenberry.com",
+         "homepage" : "https://joshuafaulkenberry.com/"
+      }
+   ],
+   "type" : "project",
+   "require" : {
+      "php" : ">=7.0"
+   },
+   "require-dev" : {
+      "phpunit/phpunit" : "9.*"
+   },
+   "autoload" : {
+      "psr-4" : {
+         "FaulkJ\\WebClient\\" : "src/"
+      }
+   },
+   "homepage" : "https://github.com/faulkj/WebClient/"
+}
