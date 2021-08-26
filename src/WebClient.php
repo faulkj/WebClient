@@ -3,7 +3,8 @@
     *WebClient Class v1.0
     *
     * Kopimi 2021 Joshua Faulkenberry
-    * Dual licensed under the MIT and GPL licenses.
+    * Unlicensed under The Unlicense
+    * http://unlicense.org/
     */
 
    class WebClient {
