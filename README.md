@@ -1,2 +1,2 @@
 # WebClient
-Wrapper class for PHP curl
+Wrapper class for cURL in PHP
