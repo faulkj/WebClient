@@ -14,7 +14,7 @@
          "homepage" : "https://joshuafaulkenberry.com/"
       }
    ],
-   "type" : "project",
+   "type" : "library",
    "require" : {
       "php" : ">=7.0"
    },

@@ -70,7 +70,7 @@
       }
 
       protected function error() {
-         //throw new Exception("WebClient Error: Response Code {$this->response->code}", E_USER_WARNING);
+         //trigger_error("WebClient Error: Response Code {$this->response->code}");
       }
 
    }
