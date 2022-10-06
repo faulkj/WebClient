@@ -1,8 +1,8 @@
 <?php namespace FaulkJ\WebClient;
    /*
-    *WebResponse Class v1.0
+    *WebResponse Class v1.1
     *
-    * Kopimi 2021 Joshua Faulkenberry
+    * Kopimi 2022 Joshua Faulkenberry
     * Unlicensed under The Unlicense
     * http://unlicense.org/
     */

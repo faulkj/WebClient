@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase,
-FaulkJ\WebClient\WebClient;
+    FaulkJ\WebClient;
 
 class WebClientTest extends TestCase {
 

@@ -1,15 +1,15 @@
-<?php namespace FaulkJ\WebClient;
+<?php namespace FaulkJ;
    /*
-    *WebClient Class v1.0
+    *WebClient Class v1.1
     *
-    * Kopimi 2021 Joshua Faulkenberry
+    * Kopimi 2022 Joshua Faulkenberry
     * Unlicensed under The Unlicense
     * http://unlicense.org/
     */
 
    class WebClient {
 
-      const     version    = "1.0";
+      const     version    = "1.1";
 
       protected $protocol  = "https";
       protected $domain    = null;
@@ -61,7 +61,7 @@
          if($this->password) $params->credentials .= ":{$this->password}";
          if(is_string($this->domain)) $params->credentials = "{$this->domain}\\{$params->credentials}";
 
-         $this->request = new WebRequest($url, $params, $this->debug);
+         $this->request = new WebClient\WebRequest($url, $params, $this->debug);
          $this->response = $this->request->submit();
 
          if($this->response->code != 200) $this->error();
