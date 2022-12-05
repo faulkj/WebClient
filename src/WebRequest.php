@@ -57,12 +57,13 @@
                   print_r($this->data);
                   echo("\n\n");
                }
+               if(!$this->type) $this->type = "";
                if(strpos($this->type, "application/json") !== false) {
                   $data = is_string($this->data) || is_numeric($this->data) ? $this->data : json_encode($this->data);
                   array_push($headers, 'Content-Length: ' . strlen($data));
                   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                }
-               elseif(strpos($this->type, "application/xml") !== false) {
+               elseif($this->type && strpos($this->type, "application/xml") !== false) {
                   array_push($headers, 'Content-Length: ' . strlen($this->data));
                   curl_setopt($ch, CURLOPT_POSTFIELDS, $this->data);
                }
