@@ -1,10 +1,14 @@
 # WebClient Changelog
 
-***2022-12-05*** Version 1.1.1
-   - PHP 8 strpos bugfiix
+### Version 1.1.2 *(8/24/2024)*
+- Fix to debug method
+- Formatting tweaks
 
-***2022-10-06*** Version 1.1
-   - Updated namespace
+### Version 1.1.1 *(12/5/2022)*
+- PHP 8 `strpos` bugfix
 
-***2021-08-26*** Version 1.0
-   - Initial public release
+### Version 1.1 *(10/6/2022)*
+- Updated namespace
+
+### Version 1.0 *(8/26/2021)*
+- Initial public release

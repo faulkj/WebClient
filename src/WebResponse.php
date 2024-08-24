@@ -1,32 +1,34 @@
-<?php namespace FaulkJ\WebClient;
-   /*
-    *WebResponse Class v1.1
-    *
-    * Kopimi 2022 Joshua Faulkenberry
-    * Unlicensed under The Unlicense
-    * http://unlicense.org/
-    */
+<?php
 
-   class WebResponse {
+namespace FaulkJ\WebClient;
+/*
+ * WebResponse Class v1.1
+ *
+ * Kopimi 2024 Joshua Faulkenberry
+ * Unlicensed under The Unlicense
+ * http://unlicense.org/
+ */
 
-      private $code    = null;
-      private $headers = array();
-      private $body    = null;
+use \Exception;
 
-      public function __construct($code, array $headers, $body) {
-         $this->code    = $code;
-         $this->headers = $headers;
-         if($body) $this->body = $body;
-      }
+class WebResponse {
 
-      public function __get($prop) {
-         if(property_exists($this, $prop)) return $this->$prop;
-         trigger_error("'$prop' does not exist");
-      }
+   private $code    = null;
+   private $headers = [];
+   private $body    = null;
 
-      public function __set($item, $val) {
-         trigger_error("Can't modify a response");
-      }
-
+   public function __construct($code, array $headers, $body) {
+      $this->code    = $code;
+      $this->headers = $headers;
+      if ($body) $this->body = $body;
    }
-?>
+
+   public function __get($prop) {
+      if (property_exists($this, $prop)) return $this->$prop;
+      throw new Exception("'$prop' does not exist");
+   }
+
+   public function __set($item, $val) {
+      throw new Exception("Can't modify a response");
+   }
+}
