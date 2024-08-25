@@ -7,6 +7,10 @@
  * http://unlicense.org/
  */
 
+ use
+    FaulkJ\WebClient\WebRequest,
+    FaulkJ\WebClient\WebResponse;
+
 class WebClient {
 
    const     version    = "1.1";
@@ -22,7 +26,7 @@ class WebClient {
    protected $request;
    protected $response;
 
-   public function __construct($host, $user = null, $password = null, $domain = null) {
+   public function __construct(string $host, ?string $user = null, ?string $password = null, ?string $domain = null) {
       if (strpos($host, "://") !== false) list($this->protocol, $this->host) = explode("://", $host);
       else $this->host = $host;
       $this->user = $user;
@@ -30,13 +34,15 @@ class WebClient {
       $this->domain = $domain;
    }
 
-   public function debug($dbg = null) {
-      return $dbg !== null
-         ? $this->debug = $dbg != false
-         : $this;
+   public function debug(?bool $dbg = null): bool|self {
+      if ($dbg !== null) {
+         $this->debug = $dbg != false;
+         return $this;
+      }
+      return $this->debug;
    }
 
-   public function request($params = null) {
+   public function request(object|array $params = null): WebResponse {
       $mil = explode(".", strval(microtime(true)));
       $mil = count($mil) > 1 ? substr($mil[1], 0, 3) : "000";
       $this->startTime = date("Y-m-d H:i:s.$mil");
@@ -59,7 +65,7 @@ class WebClient {
       if ($this->password) $params->credentials .= ":{$this->password}";
       if (is_string($this->domain)) $params->credentials = "{$this->domain}\\{$params->credentials}";
 
-      $this->request = new WebClient\WebRequest($url, $params, $this->debug);
+      $this->request = new WebRequest($url, $params, $this->debug);
       $this->response = $this->request->submit();
 
       return $this->response;

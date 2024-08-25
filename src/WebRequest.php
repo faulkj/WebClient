@@ -18,7 +18,8 @@ class WebRequest {
    private $headers;
    private $debug;
 
-   public function __construct($url, $params = null, $debug = false) {
+   public function __construct(string $url, object|array $params = null, bool $debug = false) {
+      $params = (object) $params;
       $this->url         = $url;
       $this->credentials = isset($params->credentials) ? $params->credentials : null;
       $this->method      = isset($params->method)  ? strtoupper($params->method) : "GET";
@@ -29,7 +30,7 @@ class WebRequest {
       $this->debug       = $debug != false;
    }
 
-   public function submit() {
+   public function submit(): ?WebResponse {
       $headers = [
          "Accept: {$this->accept}"
       ];

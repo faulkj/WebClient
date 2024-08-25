@@ -17,18 +17,18 @@ class WebResponse {
    private $headers = [];
    private $body    = null;
 
-   public function __construct($code, array $headers, $body) {
+   public function __construct(int $code, array $headers, string $body) {
       $this->code    = $code;
       $this->headers = $headers;
       if ($body) $this->body = $body;
    }
 
-   public function __get($prop) {
+   public function __get(string $prop) {
       if (property_exists($this, $prop)) return $this->$prop;
       throw new Exception("'$prop' does not exist");
    }
 
-   public function __set($item, $val) {
+   public function __set(String $item, $val) {
       throw new Exception("Can't modify a response");
    }
 }
